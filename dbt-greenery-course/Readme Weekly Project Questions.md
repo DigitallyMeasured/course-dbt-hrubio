@@ -1,4 +1,4 @@
-**WEEK 1**\
+**WEEK 1**
 
 - How many users do we have?\
   130 users
