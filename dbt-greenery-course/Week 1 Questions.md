@@ -8,8 +8,8 @@
   3 days, 22 hours hours and 13 minutes per order
 
 - How many users have only made one purchase? Two purchases? Three+ purchases?\
-  One purchase = 25 users
-  Two purchases = 22 users
+  One purchase = 25 users\
+  Two purchases = 22 users\
   Three+ purchases = 81 users
 
 - On average, how many unique sessions do we have per hour?\
