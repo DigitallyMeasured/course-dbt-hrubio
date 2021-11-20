@@ -10,6 +10,54 @@ models:
       - name: height
         tests:
           - positive_values
-      - name: weight
+      - name: weight_lbs
         tests:
           - positive_values
+  - name: stg_addresses
+    description: Ship to address from each user. 
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_events
+    description: Details about each event during an user's path to purchase. 
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_order_items
+    description: Break down of purchased products within each order.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+  - name: stg_orders
+    description: Historical records from each order placed by users, including their status at query time.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_products
+    description: Basic information for each product, including price & stock level at query time.
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_promos
+    description: Promo details applicable to purchases, including discount & status.
+    columns:
+      - name: promo_id
+        tests:
+          - not_null
+          - unique
+  - name: stg_users
+    description: Details from each user who has created an account.
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
