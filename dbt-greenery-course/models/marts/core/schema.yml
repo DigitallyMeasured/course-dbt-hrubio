@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: fact_orders
+    description: Historical records from each order placed by users, including their status at query time.
+    columns:
+      - name: order_id
+        description: Primary key for this table.
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: Id of user who placed an order.
+        tests:
+          - not_null
+      - name: status
+        description: current order status
+        tests:
+        - not_null
+        - accepted_values:
+            values: ['shipped', 'pending', 'preparing', 'delivered']
+      - name: shipping_service
+        description: Shipping service used
+        tests:
+        - not_null
+        - accepted_values:
+            values: ['fedex', 'ups', 'dhl', 'usps', NULL]
+        config:
+          where: "order_status NOT IN ('pending', 'preparing')"
+      - name: order_cost
+        description: Order amount without shipping costs
+        tests:
+        - not_null
+      - name: shipping_cost
+        description: Shipping amount paid by the user
+        tests:
+        - not_null
+      - name: order_total
+        description: Total order amount
+        tests:
+        - not_null
+
+  - name: dim_products
+    description: Basic information for each product, including price & stock level at query time.
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: Name of the product.
+        tests:
+        - not_null
+
+  - name: dim_users
+    description: Details from each user who has created an account.
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: created_at
+        description: Timestamp of the user created.
+        tests:
+        - not_null
+
+  - name: int_daily_products_sold
+    description: Daily summary of products sold
+    columns:
+      - name: product_id
+        description: Id of product sold.
+        tests:
+        - not_null
+      - name: order_date
+        description: Date when the product is sold.
+        tests:
+        - not_null

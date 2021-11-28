@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: fact_page_views
+    description: Page views events on the Greenery store
+    columns:
+      - name: event_id
+        description: Primary key for this table.
+        tests:
+        - unique
+        - not_null
+      - name: session_id
+        description: Id a session of the event
+        tests: 
+        - not_null
+      - name: user_id
+        description: Id of user who viewed a page
+        tests:
+        - not_null
+      - name: page_url
+        description: Url where the event took place
+        tests:
+        - not_null
