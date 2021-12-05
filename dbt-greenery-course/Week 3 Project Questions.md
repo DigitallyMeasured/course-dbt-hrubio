@@ -10,6 +10,7 @@ What is our overall conversion rate?
     SELECT
     SUM(CASE WHEN event_type = 'checkout' THEN 1 ELSE 0 END) as num_checkouts,
     COUNT(DISTINCT session_id) AS num_sessions
+    FROM {{ref('dim_events')}}
     
     What is our conversion rate by product?
     
