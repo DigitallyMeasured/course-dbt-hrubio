@@ -12,3 +12,23 @@ What is our overall conversion rate?
     COUNT(DISTINCT session_id) AS num_sessions
     
     What is our conversion rate by product?
+    
+    
+(2) Create a macro to simplify part of a model(s).
+
+    - grant_role_permissions
+    - positive_values
+    - truncate_stg_tables
+    
+(3) Add a post hook to your project to apply grants to the role “reporting”.
+
+      - "{{ apply_grants_select_usage(role='reporting') }}"
+      
+(4) After learning about dbt packages, we want to try one out and apply some macros or tests.
+
+    - package: dbt-labs/dbt_utils
+      version: 0.7.4
+    - package: calogica/dbt_expectations
+      version: [">=0.4.0", "<0.5.0"]
+    - package: dbt-labs/codegen
+      version: 0.4.0
