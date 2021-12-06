@@ -15,7 +15,7 @@ SELECT
 FROM {{ref('stg_users')}} AS u
 LEFT JOIN {{ref('stg_orders')}} AS o
 ON u.user_id = o.user_id
-GROUP BY 1, 2
+{{ dbt_utils.group_by(n=2) }}
 )
 
 
