@@ -34,13 +34,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_greenery:
     # Config indicated by + and applies to all files under models/example/
+    post-hook:
+      - "{{ apply_grants_select_usage(role='reporting') }}"
     marts:
-        core:
-            materialized: table
-        marketing:
-            materialized: table
-        product:
-            materialized: table
+          materialized: table
+
     staging:
-        postgres:
-            materialized: view
+          materialized: view
+
+on-run-start:
+  - "{{ truncate_stg_tables('stg_') }}"
+
+on-run-end:
+    - "{{ apply_grants_select_usage('reporting') }}"
