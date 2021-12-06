@@ -9,7 +9,7 @@ SELECT
     a.event_id, 
     a.page_name, 
     CASE WHEN a.product_id IS NOT NULL THEN b.name END product_name,
-    a.created_at as event_date_utc,
+    a.created_at,
     a.event_type,
     a.session_id,
     a.product_id
