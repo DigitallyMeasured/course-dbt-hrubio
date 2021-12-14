@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+  
+  - name: orders_by_product
+    type: dashboard
+    maturity: high
+    url: https://mybi/product_dashboard/
+    description: >
+      Table providing the total number of orders by product
+    
+    depends_on:
+      - ref('fact_orders')
+      
+    owner:
+      name: Hector Rubio
+      email: hector@digitallymeasured.io
