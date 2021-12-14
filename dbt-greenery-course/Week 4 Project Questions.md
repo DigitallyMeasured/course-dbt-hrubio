@@ -1,3 +1,14 @@
+How are our users moving through the product funnel?
+    total_sessions: 696 
+    dropoff_pct_sessions_to_page_views: 24.1%
+    dropoff_pct_page_views_to_add_to_carts: 9.1%
+    dropoff_pct_add_to_carts_to_checkouts: 16.7% 	 	
+
+Which steps in the funnel have largest drop off points?
+    dropoff_pct_sessions_to_page_views: 24.1%
+    dropoff_pct_add_to_carts_to_checkouts: 16.7%
+    dropoff_pct_page_views_to_add_to_carts: 9.1%
+
 Reflecting on my learning in this class...
 
     if your organization is thinking about using dbt, how would you pitch the value of dbt/analytics engineering to a decision maker at your organization?
