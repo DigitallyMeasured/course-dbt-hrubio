@@ -2,15 +2,15 @@ version: 2
 
 exposures:
   
-  - name: orders_by_product
+  - name: conversion_funnel_by_product
     type: dashboard
     maturity: high
     url: https://mybi/product_dashboard/
     description: >
-      Table providing the total number of orders by product
+      Table providing the user dropoff in their path to conversion
     
     depends_on:
-      - ref('fact_orders')
+      - ref('fact_conversion_funnel')
       
     owner:
       name: Hector Rubio
